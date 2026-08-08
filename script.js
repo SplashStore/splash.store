@@ -208,7 +208,7 @@ function irProductos() {
 }
 
 
-// FINALIZAR COMPRA
+// FINALIZAR COMPRA POR WHATSAPP
 
 function finalizarCompra() {
 
@@ -219,8 +219,26 @@ function finalizarCompra() {
         return;
     }
 
-    alert(
-        "💳 Próximamente conectaremos Mercado Pago."
-    );
+    // PONÉ ACÁ TU NÚMERO DE WHATSAPP
+    // Argentina: 549 + código de área + número
+    const numeroWhatsApp = "5493586028606";
 
+    let mensaje = "🛍️ Hola! Quiero realizar este pedido:%0A%0A";
+
+    let total = 0;
+
+    carrito.forEach((producto, index) => {
+
+        mensaje += `${index + 1}. ${producto.nombre} - $${producto.precio.toLocaleString()}%0A`;
+
+        total += producto.precio;
+
+    });
+
+    mensaje += `%0A💰 Total: $${total.toLocaleString()}`;
+
+    const enlace =
+        `https://wa.me/${numeroWhatsApp}?text=${mensaje}`;
+
+    window.open(enlace, "_blank");
 }
