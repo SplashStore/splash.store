@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mi Tienda</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ENCABEZADO -->
+    <header>
+
+        <div class="logo">
+            🛍️ Mi Tienda
+        </div>
+
+        <div class="buscador">
+
+            <input
+                type="text"
+                id="busqueda"
+                placeholder="¿Qué estás buscando?"
+            >
+
+            <button onclick="buscar()">
+                🔍
+            </button>
+
+        </div>
+
+        <div class="acciones">
+
+            <button onclick="mostrarLogin()">
+                👤 Ingresar
+            </button>
+
+            <button onclick="mostrarCarrito()">
+                🛒 Carrito
+                <span id="contador">0</span>
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- CATEGORÍAS -->
+
+    <nav class="categorias">
+
+        <button onclick="filtrar('todos')">
+            Todos
+        </button>
+
+        <button onclick="filtrar('perfumes')">
+            🌸 Perfumes
+        </button>
+
+        <button onclick="filtrar('ofertas')">
+            🔥 Ofertas
+        </button>
+
+    </nav>
+
+
+    <!-- PRESENTACIÓN -->
+
+    <section class="hero">
+
+        <div>
+
+            <h1>
+                Perfumes al mejor precio
+            </h1>
+
+            <p>
+                Encontrá tus perfumes favoritos.
+            </p>
+
+            <button onclick="irProductos()">
+                Comprar ahora
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- PRODUCTOS -->
+
+    <main>
+
+        <h2>
+            Productos destacados
+        </h2>
+
+
+        <div id="productos" class="productos">
+
+
+            <!-- PRODUCTO 1 -->
+
+            <article
+                class="producto"
+                data-categoria="perfumes"
+            >
+
+                <img
+                    src="perfume.jpg"
+                    alt="Perfume 9PM Tubito 35ml"
+                >
+
+                <h3>
+                    Perfume 9PM Tubito 35ml
+                </h3>
+
+                <p class="descripcion">
+                    Perfume 9PM en formato tubito de 35ml.
+                </p>
+
+                <p class="precio">
+                    $6.500
+                </p>
+
+                <button
+                    onclick="agregarCarrito(
+                        'Perfume 9PM Tubito 35ml',
+                        6500
+                    )"
+                >
+                    🛒 Agregar al carrito
+                </button>
+
+            </article>
+
+
+            <!-- PRODUCTO 2 -->
+
+            <article
+                class="producto"
+                data-categoria="perfumes"
+            >
+
+                <img
+                    src="perfume.jpg"
+                    alt="Perfume 9PM Tubito 35ml"
+                >
+
+                <h3>
+                    Perfume 9PM Tubito 35ml
+                </h3>
+
+                <p class="descripcion">
+                    Perfume 9PM en formato tubito de 35ml.
+                </p>
+
+                <p class="precio">
+                    $6.500
+                </p>
+
+                <button
+                    onclick="agregarCarrito(
+                        'Perfume 9PM Tubito 35ml',
+                        6500
+                    )"
+                >
+                    🛒 Agregar al carrito
+                </button>
+
+            </article>
+
+
+        </div>
+
+    </main>
+
+
+    <!-- CARRITO -->
+
+    <div
+        id="ventanaCarrito"
+        class="modal"
+    >
+
+        <div class="modal-contenido">
+
+            <button
+                class="cerrar"
+                onclick="cerrarCarrito()"
+            >
+                ✖
+            </button>
+
+            <h2>
+                🛒 Tu carrito
+            </h2>
+
+            <div id="listaCarrito"></div>
+
+            <hr>
+
+            <h3>
+                Total:
+                $<span id="total">0</span>
+            </h3>
+
+            <button onclick="finalizarCompra()">
+                💳 Finalizar compra
+            </button>
+
+            <button
+                class="vaciar"
+                onclick="vaciarCarrito()"
+            >
+                Vaciar carrito
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- LOGIN -->
+
+    <div
+        id="ventanaLogin"
+        class="modal"
+    >
+
+        <div class="modal-contenido">
+
+            <button
+                class="cerrar"
+                onclick="cerrarLogin()"
+            >
+                ✖
+            </button>
+
+            <h2>
+                👤 Iniciar sesión
+            </h2>
+
+            <input
+                type="email"
+                placeholder="Correo electrónico"
+            >
+
+            <input
+                type="password"
+                placeholder="Contraseña"
+            >
+
+            <button onclick="iniciarSesion()">
+                Ingresar
+            </button>
+
+            <p>
+                ¿No tenés cuenta?
+                <b>Registrate</b>
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- PIE DE PÁGINA -->
+
+    <footer>
+
+        <p>
+            © 2026 Mi Tienda
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
