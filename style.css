@@ -1,3 +1,7 @@
+/* =========================
+   CONFIGURACIÓN GENERAL
+========================= */
+
 * {
     margin: 0;
     padding: 0;
@@ -11,11 +15,14 @@ body {
 }
 
 
-/* HEADER */
+/* =========================
+   HEADER
+========================= */
 
 header {
     background: #111827;
     color: white;
+
     padding: 18px 5%;
 
     display: flex;
@@ -35,6 +42,11 @@ header {
     font-weight: bold;
 }
 
+
+/* =========================
+   BUSCADOR
+========================= */
+
 .buscador {
     display: flex;
     flex: 1;
@@ -43,6 +55,7 @@ header {
 
 .buscador input {
     width: 100%;
+
     padding: 13px;
 
     border: none;
@@ -57,19 +70,27 @@ header {
     border-radius: 0 8px 8px 0;
 }
 
+
+/* =========================
+   ACCIONES
+========================= */
+
 .acciones {
     display: flex;
     gap: 10px;
 }
 
 
-/* BOTONES */
+/* =========================
+   BOTONES
+========================= */
 
 button {
     background: #2563eb;
     color: white;
 
     border: none;
+
     padding: 11px 16px;
 
     border-radius: 8px;
@@ -87,7 +108,9 @@ button:hover {
 }
 
 
-/* CATEGORÍAS */
+/* =========================
+   CATEGORÍAS
+========================= */
 
 .categorias {
     background: white;
@@ -105,7 +128,9 @@ button:hover {
 }
 
 
-/* HERO */
+/* =========================
+   HERO
+========================= */
 
 .hero {
     min-height: 350px;
@@ -136,10 +161,13 @@ button:hover {
 }
 
 
-/* PRODUCTOS */
+/* =========================
+   PRODUCTOS
+========================= */
 
 main {
     max-width: 1200px;
+
     margin: auto;
 
     padding: 40px 20px;
@@ -148,6 +176,9 @@ main {
 main h2 {
     margin-bottom: 25px;
 }
+
+
+/* GRILLA */
 
 .productos {
     display: grid;
@@ -161,7 +192,12 @@ main h2 {
     gap: 25px;
 }
 
+
+/* TARJETA */
+
 .producto {
+    display: block;
+
     background: white;
 
     border-radius: 15px;
@@ -170,7 +206,7 @@ main h2 {
 
     box-shadow:
         0 5px 20px
-        rgba(0,0,0,0.08);
+        rgba(0, 0, 0, 0.08);
 
     padding-bottom: 20px;
 
@@ -181,12 +217,23 @@ main h2 {
     transform: translateY(-5px);
 }
 
+
+/* IMAGEN */
+
 .producto img {
+    display: block;
+
     width: 100%;
+
     height: 220px;
 
     object-fit: cover;
+
+    background: #eeeeee;
 }
+
+
+/* TEXTO */
 
 .producto h3,
 .producto p,
@@ -197,11 +244,13 @@ main h2 {
 
 .producto h3 {
     margin-top: 18px;
+
     font-size: 20px;
 }
 
 .descripcion {
     color: #666;
+
     margin-top: 8px;
 }
 
@@ -209,14 +258,18 @@ main h2 {
     color: #2563eb;
 
     font-size: 23px;
+
     font-weight: bold;
 
     margin-top: 15px;
+
     margin-bottom: 15px;
 }
 
 
-/* MODALES */
+/* =========================
+   MODALES
+========================= */
 
 .modal {
     display: none;
@@ -226,11 +279,12 @@ main h2 {
     inset: 0;
 
     background:
-        rgba(0,0,0,0.6);
+        rgba(0, 0, 0, 0.6);
 
     z-index: 200;
 
     align-items: center;
+
     justify-content: center;
 }
 
@@ -238,6 +292,7 @@ main h2 {
     background: white;
 
     width: 90%;
+
     max-width: 500px;
 
     padding: 30px;
@@ -247,17 +302,25 @@ main h2 {
     position: relative;
 
     max-height: 80vh;
+
     overflow-y: auto;
 }
+
+
+/* BOTÓN CERRAR */
 
 .cerrar {
     position: absolute;
 
     right: 15px;
+
     top: 15px;
 
     background: #ef4444;
 }
+
+
+/* INPUTS */
 
 .modal-contenido input {
     width: 100%;
@@ -275,6 +338,11 @@ main h2 {
     margin-top: 10px;
 }
 
+
+/* =========================
+   CARRITO
+========================= */
+
 #listaCarrito div {
     padding: 15px 0;
 
@@ -284,6 +352,8 @@ main h2 {
     display: flex;
 
     justify-content: space-between;
+
+    align-items: center;
 }
 
 .vaciar {
@@ -291,7 +361,9 @@ main h2 {
 }
 
 
-/* FOOTER */
+/* =========================
+   FOOTER
+========================= */
 
 footer {
     background: #111827;
@@ -306,7 +378,9 @@ footer {
 }
 
 
-/* CELULAR */
+/* =========================
+   CELULAR
+========================= */
 
 @media (max-width: 700px) {
 
@@ -328,6 +402,10 @@ footer {
 
     .hero h1 {
         font-size: 32px;
+    }
+
+    .productos {
+        grid-template-columns: 1fr;
     }
 
 }
