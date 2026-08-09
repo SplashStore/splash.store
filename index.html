@@ -1,13 +1,32 @@
-<title>Mi Tienda</title>
+<!DOCTYPE html>
+<html lang="es">
 
-<link rel="stylesheet" href="style.css">
+<head>
 
-<!-- ENCABEZADO -->
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mi Tienda</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     ENCABEZADO
+========================= -->
+
 <header>
 
     <div class="logo">
         🛍️ Mi Tienda
     </div>
+
 
     <div class="buscador">
 
@@ -23,15 +42,22 @@
 
     </div>
 
+
     <div class="acciones">
 
         <button onclick="mostrarLogin()">
             👤 Ingresar
         </button>
 
+
         <button onclick="mostrarCarrito()">
+
             🛒 Carrito
-            <span id="contador">0</span>
+
+            <span id="contador">
+                0
+            </span>
+
         </button>
 
     </div>
@@ -39,7 +65,10 @@
 </header>
 
 
-<!-- CATEGORÍAS -->
+
+<!-- =========================
+     CATEGORÍAS
+========================= -->
 
 <nav class="categorias">
 
@@ -47,13 +76,16 @@
         Todos
     </button>
 
+
     <button onclick="filtrar('perfumes')">
         🌸 Perfumes
     </button>
 
+
     <button onclick="filtrar('tubitos-arabes')">
         🧴 Tubitos Árabes
     </button>
+
 
     <button onclick="filtrar('ofertas')">
         🔥 Ofertas
@@ -62,7 +94,10 @@
 </nav>
 
 
-<!-- PRESENTACIÓN -->
+
+<!-- =========================
+     PRESENTACIÓN
+========================= -->
 
 <section class="hero">
 
@@ -72,9 +107,11 @@
             Perfumes al mejor precio
         </h1>
 
+
         <p>
             Encontrá tus perfumes favoritos.
         </p>
+
 
         <button onclick="irProductos()">
             Comprar ahora
@@ -85,7 +122,10 @@
 </section>
 
 
-<!-- PRODUCTOS -->
+
+<!-- =========================
+     PRODUCTOS
+========================= -->
 
 <main>
 
@@ -93,7 +133,11 @@
         🧴 Tubitos Árabes
     </h2>
 
-    <div id="productos" class="productos">
+
+    <div
+        id="productos"
+        class="productos"
+    >
 
 
         <!-- PRODUCTO 1 -->
@@ -105,24 +149,28 @@
 
             <img
                 src="foto1.jpg"
-                alt="NOMBRE DEL PERFUME 1"
+                alt="Khamrah EDP Tubito Árabe"
             >
 
+
             <h3>
-                Khamrah EDP-Tubito Arabe✏️
+                Khamrah EDP - Tubito Árabe
             </h3>
+
 
             <p class="descripcion">
                 Perfume en formato tubito árabe de 35ml.
             </p>
 
+
             <p class="precio">
                 $6.500
             </p>
 
+
             <button
                 onclick="agregarCarrito(
-                    'Khamrah EDP-Tubito Arabe✏️',
+                    'Khamrah EDP - Tubito Árabe',
                     6500
                 )"
             >
@@ -130,6 +178,7 @@
             </button>
 
         </article>
+
 
 
         <!-- PRODUCTO 2 -->
@@ -141,24 +190,28 @@
 
             <img
                 src="foto2.jpg"
-                alt="NOMBRE DEL PERFUME 2"
+                alt="Odyssey Spectra Tubito Árabe"
             >
 
+
             <h3>
-                Odyssey Spectra - Tubito Árabe✏️
+                Odyssey Spectra - Tubito Árabe
             </h3>
+
 
             <p class="descripcion">
                 Perfume en formato tubito árabe de 35ml.
             </p>
 
+
             <p class="precio">
                 $6.500
             </p>
 
+
             <button
                 onclick="agregarCarrito(
-                    'Odyssey Spectra - Tubito Árabe✏️',
+                    'Odyssey Spectra - Tubito Árabe',
                     6500
                 )"
             >
@@ -166,6 +219,7 @@
             </button>
 
         </article>
+
 
 
         <!-- PRODUCTO 3 -->
@@ -177,24 +231,28 @@
 
             <img
                 src="foto3.jpg"
-                alt="NOMBRE DEL PERFUME 3"
+                alt="Hawas Fire Tubito Árabe"
             >
 
+
             <h3>
-                Hawas Fire-Tubito Arabe✏️
+                Hawas Fire - Tubito Árabe
             </h3>
+
 
             <p class="descripcion">
                 Perfume en formato tubito árabe de 35ml.
             </p>
 
+
             <p class="precio">
                 $6.500
             </p>
 
+
             <button
                 onclick="agregarCarrito(
-                    'Hawas Fire-Tubito Arabe✏️',
+                    'Hawas Fire - Tubito Árabe',
                     6500
                 )"
             >
@@ -202,6 +260,7 @@
             </button>
 
         </article>
+
 
 
         <!-- PRODUCTO 4 -->
@@ -213,24 +272,28 @@
 
             <img
                 src="foto4.jpg"
-                alt="NOMBRE DEL PERFUME 4"
+                alt="Hayaati Black Tubito Árabe"
             >
 
+
             <h3>
-                Hayaati Black-Tubito Arabe ✏️
+                Hayaati Black - Tubito Árabe
             </h3>
+
 
             <p class="descripcion">
                 Perfume en formato tubito árabe de 35ml.
             </p>
 
+
             <p class="precio">
                 $6.500
             </p>
 
+
             <button
                 onclick="agregarCarrito(
-                    'Hayaati Black-Tubito Arabe ✏️',
+                    'Hayaati Black - Tubito Árabe',
                     6500
                 )"
             >
@@ -238,6 +301,7 @@
             </button>
 
         </article>
+
 
 
         <!-- PRODUCTO 5 -->
@@ -249,24 +313,28 @@
 
             <img
                 src="foto5.jpg"
-                alt="NOMBRE DEL PERFUME 5"
+                alt="Khamrah Tubito Árabe"
             >
 
+
             <h3>
-                Khamrah EDP-Tubito Arabe✏️
+                Khamrah - Tubito Árabe
             </h3>
+
 
             <p class="descripcion">
                 Perfume en formato tubito árabe de 35ml.
             </p>
 
+
             <p class="precio">
                 $6.500
             </p>
 
+
             <button
                 onclick="agregarCarrito(
-                    'Khamrah EDP-Tubito Arabe✏️',
+                    'Khamrah - Tubito Árabe',
                     6500
                 )"
             >
@@ -274,6 +342,7 @@
             </button>
 
         </article>
+
 
 
         <!-- PRODUCTO 6 -->
@@ -285,24 +354,28 @@
 
             <img
                 src="foto6.jpg"
-                alt="NOMBRE DEL PERFUME 6"
+                alt="Odyssey Mandarin Sky Elixir"
             >
 
+
             <h3>
-                Odyssey Mandarin Sky Elixir-Tubito Arabe✏️
+                Odyssey Mandarin Sky Elixir - Tubito Árabe
             </h3>
+
 
             <p class="descripcion">
                 Perfume en formato tubito árabe de 35ml.
             </p>
 
+
             <p class="precio">
                 $6.500
             </p>
 
+
             <button
                 onclick="agregarCarrito(
-                    'Odyssey Mandarin Sky Elixir-Tubito Arabe✏️',
+                    'Odyssey Mandarin Sky Elixir - Tubito Árabe',
                     6500
                 )"
             >
@@ -310,6 +383,7 @@
             </button>
 
         </article>
+
 
 
         <!-- PRODUCTO 7 -->
@@ -321,24 +395,28 @@
 
             <img
                 src="foto7.jpg"
-                alt="NOMBRE DEL PERFUME 7"
+                alt="Odyssey Mandarin Sky"
             >
 
+
             <h3>
-                Odyssey Mandarín Sky-Tubito Arabe✏️
+                Odyssey Mandarín Sky - Tubito Árabe
             </h3>
+
 
             <p class="descripcion">
                 Perfume en formato tubito árabe de 35ml.
             </p>
 
+
             <p class="precio">
                 $6.500
             </p>
 
+
             <button
                 onclick="agregarCarrito(
-                    'Odyssey Mandarín Sky-Tubito Arabe✏️',
+                    'Odyssey Mandarín Sky - Tubito Árabe',
                     6500
                 )"
             >
@@ -346,6 +424,7 @@
             </button>
 
         </article>
+
 
 
         <!-- PRODUCTO 8 -->
@@ -357,24 +436,28 @@
 
             <img
                 src="foto8.jpg"
-                alt="NOMBRE DEL PERFUME 8"
+                alt="9 PM Rebel"
             >
 
+
             <h3>
-                9 PM Rebel-Tubito Arabe✏️
+                9 PM Rebel - Tubito Árabe
             </h3>
+
 
             <p class="descripcion">
                 Perfume en formato tubito árabe de 35ml.
             </p>
 
+
             <p class="precio">
                 $6.500
             </p>
 
+
             <button
                 onclick="agregarCarrito(
-                    '9 PM Rebel-Tubito Arabe✏️',
+                    '9 PM Rebel - Tubito Árabe',
                     6500
                 )"
             >
@@ -382,6 +465,7 @@
             </button>
 
         </article>
+
 
 
         <!-- PRODUCTO 9 -->
@@ -393,24 +477,28 @@
 
             <img
                 src="foto9.jpg"
-                alt="Asad Elixir-Tubito Arabe ✏️"
+                alt="Asad Elixir"
             >
 
+
             <h3>
-                Asad Elixir-Tubito Arabe ✏️
+                Asad Elixir - Tubito Árabe
             </h3>
+
 
             <p class="descripcion">
                 Perfume en formato tubito árabe de 35ml.
             </p>
 
+
             <p class="precio">
                 $6.500
             </p>
 
+
             <button
                 onclick="agregarCarrito(
-                    'Asad Elixir-Tubito Arabe ✏️',
+                    'Asad Elixir - Tubito Árabe',
                     6500
                 )"
             >
@@ -418,6 +506,7 @@
             </button>
 
         </article>
+
 
 
         <!-- PRODUCTO 10 -->
@@ -429,24 +518,28 @@
 
             <img
                 src="foto10.jpg"
-                alt="NOMBRE DEL PERFUME 10"
+                alt="9 AM Celeste"
             >
 
+
             <h3>
-                9 AM Celeste-Tubito Arabe✏️
+                9 AM Celeste - Tubito Árabe
             </h3>
+
 
             <p class="descripcion">
                 Perfume en formato tubito árabe de 35ml.
             </p>
 
+
             <p class="precio">
                 $6.500
             </p>
 
+
             <button
                 onclick="agregarCarrito(
-                    '9 AM Celeste-Tubito Arabe✏️',
+                    '9 AM Celeste - Tubito Árabe',
                     6500
                 )"
             >
@@ -461,7 +554,10 @@
 </main>
 
 
-<!-- CARRITO -->
+
+<!-- =========================
+     CARRITO
+========================= -->
 
 <div
     id="ventanaCarrito"
@@ -470,6 +566,7 @@
 
     <div class="modal-contenido">
 
+
         <button
             class="cerrar"
             onclick="cerrarCarrito()"
@@ -477,22 +574,35 @@
             ✖
         </button>
 
+
         <h2>
             🛒 Tu carrito
         </h2>
 
+
         <div id="listaCarrito"></div>
+
 
         <hr>
 
+
         <h3>
+
             Total:
-            $<span id="total">0</span>
+
+            $<span id="total">
+                0
+            </span>
+
         </h3>
 
-        <button onclick="finalizarCompra()">
+
+        <button
+            onclick="finalizarCompra()"
+        >
             💳 Finalizar compra
         </button>
+
 
         <button
             class="vaciar"
@@ -501,12 +611,16 @@
             Vaciar carrito
         </button>
 
+
     </div>
 
 </div>
 
 
-<!-- LOGIN -->
+
+<!-- =========================
+     LOGIN
+========================= -->
 
 <div
     id="ventanaLogin"
@@ -515,6 +629,7 @@
 
     <div class="modal-contenido">
 
+
         <button
             class="cerrar"
             onclick="cerrarLogin()"
@@ -522,35 +637,51 @@
             ✖
         </button>
 
+
         <h2>
             👤 Iniciar sesión
         </h2>
+
 
         <input
             type="email"
             placeholder="Correo electrónico"
         >
 
+
         <input
             type="password"
             placeholder="Contraseña"
         >
 
-        <button onclick="iniciarSesion()">
+
+        <button
+            onclick="iniciarSesion()"
+        >
             Ingresar
         </button>
 
+
         <p>
+
             ¿No tenés cuenta?
-            <b>Registrate</b>
+
+            <b>
+                Registrate
+            </b>
+
         </p>
+
 
     </div>
 
 </div>
 
 
-<!-- PIE DE PÁGINA -->
+
+<!-- =========================
+     PIE DE PÁGINA
+========================= -->
 
 <footer>
 
@@ -561,4 +692,9 @@
 </footer>
 
 
+
 <script src="script.js"></script>
+
+</body>
+
+</html>
