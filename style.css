@@ -178,7 +178,9 @@ main h2 {
 }
 
 
-/* GRILLA */
+/* =========================
+   GRILLA DE PRODUCTOS
+========================= */
 
 .productos {
     display: grid;
@@ -193,7 +195,9 @@ main h2 {
 }
 
 
-/* TARJETA */
+/* =========================
+   TARJETA PRODUCTO
+========================= */
 
 .producto {
     display: block;
@@ -215,10 +219,16 @@ main h2 {
 
 .producto:hover {
     transform: translateY(-5px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(0, 0, 0, 0.12);
 }
 
 
-/* IMAGEN */
+/* =========================
+   IMÁGENES
+========================= */
 
 .producto img {
     display: block;
@@ -233,7 +243,9 @@ main h2 {
 }
 
 
-/* TEXTO */
+/* =========================
+   TEXTO PRODUCTOS
+========================= */
 
 .producto h3,
 .producto p,
@@ -252,6 +264,8 @@ main h2 {
     color: #666;
 
     margin-top: 8px;
+
+    line-height: 1.4;
 }
 
 .precio {
@@ -264,6 +278,112 @@ main h2 {
     margin-top: 15px;
 
     margin-bottom: 15px;
+}
+
+
+/* =========================
+   PACK 3 PERFUMES
+========================= */
+
+.pack-producto {
+    border: 3px solid #2563eb;
+
+    position: relative;
+}
+
+.pack-producto::before {
+    content: "OFERTA";
+
+    position: absolute;
+
+    top: 12px;
+    right: 12px;
+
+    background: #2563eb;
+
+    color: white;
+
+    padding: 6px 10px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    z-index: 2;
+}
+
+.pack-icono {
+    height: 220px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 90px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #dbeafe,
+            #eff6ff
+        );
+}
+
+
+/* =========================
+   OPCIONES DEL PACK
+========================= */
+
+#opcionesPack {
+    margin-top: 20px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.opcion-pack {
+    width: 100%;
+
+    margin: 0;
+
+    text-align: left;
+
+    background: #f3f4f6;
+
+    color: #222;
+
+    border: 2px solid #ddd;
+
+    padding: 12px 15px;
+
+    border-radius: 8px;
+
+    transition: 0.2s;
+}
+
+.opcion-pack:hover {
+    background: #e5e7eb;
+
+    border-color: #2563eb;
+
+    transform: none;
+}
+
+.opcion-pack.seleccionado {
+    background: #dcfce7;
+
+    color: #166534;
+
+    border: 2px solid #22c55e;
+
+    font-weight: bold;
 }
 
 
@@ -286,6 +406,8 @@ main h2 {
     align-items: center;
 
     justify-content: center;
+
+    padding: 20px;
 }
 
 .modal-contenido {
@@ -307,7 +429,9 @@ main h2 {
 }
 
 
-/* BOTÓN CERRAR */
+/* =========================
+   BOTÓN CERRAR
+========================= */
 
 .cerrar {
     position: absolute;
@@ -317,10 +441,18 @@ main h2 {
     top: 15px;
 
     background: #ef4444;
+
+    padding: 8px 11px;
+}
+
+.cerrar:hover {
+    background: #dc2626;
 }
 
 
-/* INPUTS */
+/* =========================
+   INPUTS
+========================= */
 
 .modal-contenido input {
     width: 100%;
@@ -332,9 +464,22 @@ main h2 {
     border: 1px solid #ddd;
 
     border-radius: 8px;
+
+    font-size: 15px;
+
+    outline: none;
 }
 
-.modal-contenido button {
+.modal-contenido input:focus {
+    border-color: #2563eb;
+}
+
+
+/* =========================
+   BOTONES DEL MODAL
+========================= */
+
+.modal-contenido > button:not(.cerrar) {
     margin-top: 10px;
 }
 
@@ -342,6 +487,10 @@ main h2 {
 /* =========================
    CARRITO
 ========================= */
+
+#listaCarrito {
+    margin-top: 15px;
+}
 
 #listaCarrito div {
     padding: 15px 0;
@@ -354,10 +503,54 @@ main h2 {
     justify-content: space-between;
 
     align-items: center;
+
+    gap: 10px;
+}
+
+#listaCarrito button {
+    background: #ef4444;
+
+    padding: 7px 10px;
+
+    flex-shrink: 0;
+}
+
+#listaCarrito button:hover {
+    background: #dc2626;
 }
 
 .vaciar {
     background: #ef4444;
+}
+
+.vaciar:hover {
+    background: #dc2626;
+}
+
+
+/* =========================
+   PACK - INFORMACIÓN
+========================= */
+
+#ventanaPack h2 {
+    margin-bottom: 15px;
+}
+
+#ventanaPack p {
+    margin-bottom: 10px;
+}
+
+#cantidadPack {
+    color: #2563eb;
+    font-size: 20px;
+}
+
+#ventanaPack hr {
+    margin: 20px 0;
+
+    border: none;
+
+    border-top: 1px solid #ddd;
 }
 
 
@@ -386,10 +579,18 @@ footer {
 
     header {
         flex-direction: column;
+
+        padding: 15px;
+    }
+
+    .logo {
+        font-size: 22px;
     }
 
     .buscador {
         width: 100%;
+
+        max-width: none;
     }
 
     .acciones {
@@ -400,12 +601,76 @@ footer {
         flex: 1;
     }
 
+    .categorias {
+        padding: 12px 15px;
+    }
+
+    .hero {
+        min-height: 300px;
+
+        padding: 50px 25px;
+    }
+
     .hero h1 {
         font-size: 32px;
     }
 
+    .hero p {
+        font-size: 17px;
+    }
+
+    main {
+        padding: 30px 15px;
+    }
+
     .productos {
         grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+    .producto img,
+    .pack-icono {
+        height: 250px;
+    }
+
+    .modal {
+        padding: 10px;
+    }
+
+    .modal-contenido {
+        width: 100%;
+
+        padding: 25px 20px;
+
+        max-height: 90vh;
+    }
+
+}
+
+
+/* =========================
+   PANTALLAS MUY PEQUEÑAS
+========================= */
+
+@media (max-width: 400px) {
+
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .producto h3 {
+        font-size: 18px;
+    }
+
+    .precio {
+        font-size: 21px;
+    }
+
+    button {
+        font-size: 14px;
+
+        padding: 10px 12px;
     }
 
 }
