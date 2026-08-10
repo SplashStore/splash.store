@@ -1,7 +1,9 @@
 let carrito = [];
 
 
+// =========================
 // AGREGAR PRODUCTO
+// =========================
 
 function agregarCarrito(nombre, precio) {
 
@@ -16,7 +18,9 @@ function agregarCarrito(nombre, precio) {
 }
 
 
+// =========================
 // ACTUALIZAR CARRITO
+// =========================
 
 function actualizarCarrito() {
 
@@ -61,7 +65,9 @@ function actualizarCarrito() {
 }
 
 
+// =========================
 // ELIMINAR PRODUCTO
+// =========================
 
 function eliminarProducto(index) {
 
@@ -71,47 +77,51 @@ function eliminarProducto(index) {
 }
 
 
+// =========================
 // MOSTRAR CARRITO
+// =========================
 
 function mostrarCarrito() {
 
     document.getElementById(
         "ventanaCarrito"
     ).style.display = "flex";
-
 }
 
 
+// =========================
 // CERRAR CARRITO
+// =========================
 
 function cerrarCarrito() {
 
     document.getElementById(
         "ventanaCarrito"
     ).style.display = "none";
-
 }
 
 
+// =========================
 // VACIAR CARRITO
+// =========================
 
 function vaciarCarrito() {
 
     carrito = [];
 
     actualizarCarrito();
-
 }
 
 
+// =========================
 // LOGIN
+// =========================
 
 function mostrarLogin() {
 
     document.getElementById(
         "ventanaLogin"
     ).style.display = "flex";
-
 }
 
 
@@ -120,7 +130,6 @@ function cerrarLogin() {
     document.getElementById(
         "ventanaLogin"
     ).style.display = "none";
-
 }
 
 
@@ -129,11 +138,12 @@ function iniciarSesion() {
     alert(
         "El sistema de usuarios lo agregaremos en el siguiente paso."
     );
-
 }
 
 
+// =========================
 // BUSCADOR
+// =========================
 
 function buscar() {
 
@@ -165,11 +175,12 @@ function buscar() {
         }
 
     });
-
 }
 
 
+// =========================
 // CATEGORÍAS
+// =========================
 
 function filtrar(categoria) {
 
@@ -192,11 +203,12 @@ function filtrar(categoria) {
         }
 
     });
-
 }
 
 
+// =========================
 // IR A PRODUCTOS
+// =========================
 
 function irProductos() {
 
@@ -204,41 +216,198 @@ function irProductos() {
         .scrollIntoView({
             behavior: "smooth"
         });
-
 }
 
 
-// FINALIZAR COMPRA POR WHATSAPP
+// ==================================================
+// PACK DE 3 PERFUMES
+// ==================================================
+
+let perfumesSeleccionados = [];
+
+
+// MOSTRAR PACK
+
+function mostrarPack() {
+
+    perfumesSeleccionados = [];
+
+    let opciones =
+        document.getElementById("opcionesPack");
+
+    opciones.innerHTML = "";
+
+    document.getElementById("cantidadPack").textContent = "0";
+
+    // Buscar todos los productos normales
+    let productos =
+        document.querySelectorAll(
+            '.producto[data-categoria="tubitos-arabes"]'
+        );
+
+    productos.forEach((producto, index) => {
+
+        let nombre =
+            producto.querySelector("h3").textContent;
+
+        let boton =
+            document.createElement("button");
+
+        boton.textContent =
+            "⬜ " + nombre;
+
+        boton.className =
+            "opcion-pack";
+
+        boton.onclick = function() {
+
+            seleccionarPerfume(
+                nombre,
+                boton
+            );
+
+        };
+
+        opciones.appendChild(boton);
+
+    });
+
+    document.getElementById(
+        "ventanaPack"
+    ).style.display = "flex";
+}
+
+
+// SELECCIONAR PERFUME
+
+function seleccionarPerfume(nombre, boton) {
+
+    // Si ya estaba seleccionado, quitarlo
+    let posicion =
+        perfumesSeleccionados.indexOf(nombre);
+
+    if (posicion !== -1) {
+
+        perfumesSeleccionados.splice(
+            posicion,
+            1
+        );
+
+        boton.textContent =
+            "⬜ " + nombre;
+
+        boton.classList.remove(
+            "seleccionado"
+        );
+
+        actualizarCantidadPack();
+
+        return;
+    }
+
+
+    // No permitir más de 3
+    if (perfumesSeleccionados.length >= 3) {
+
+        alert(
+            "⚠️ Solo podés elegir 3 perfumes."
+        );
+
+        return;
+    }
+
+
+    perfumesSeleccionados.push(nombre);
+
+    boton.textContent =
+        "✅ " + nombre;
+
+    boton.classList.add(
+        "seleccionado"
+    );
+
+    actualizarCantidadPack();
+}
+
+
+// ACTUALIZAR CONTADOR
+
+function actualizarCantidadPack() {
+
+    document.getElementById(
+        "cantidadPack"
+    ).textContent =
+        perfumesSeleccionados.length;
+}
+
+
+// CERRAR PACK
+
+function cerrarPack() {
+
+    document.getElementById(
+        "ventanaPack"
+    ).style.display = "none";
+}
+
+
+// AGREGAR PACK AL CARRITO
+
+function agregarPack() {
+
+    if (perfumesSeleccionados.length !== 3) {
+
+        alert(
+            "⚠️ Tenés que elegir exactamente 3 perfumes."
+        );
+
+        return;
+    }
+
+
+    let nombres =
+        perfumesSeleccionados.join(
+            " + "
+        );
+
+
+    carrito.push({
+
+        nombre:
+            "🎁 Pack 3 Perfumes: " +
+            nombres,
+
+        precio: 18000
+
+    });
+
+
+    actualizarCarrito();
+
+    cerrarPack();
+
+    alert(
+        "✅ Pack agregado al carrito por $18.000"
+    );
+}
+
+
+// =========================
+// FINALIZAR COMPRA
+// =========================
 
 function finalizarCompra() {
 
     if (carrito.length === 0) {
 
-        alert("🛒 Tu carrito está vacío.");
+        alert(
+            "🛒 Tu carrito está vacío."
+        );
 
         return;
     }
 
-    // PONÉ ACÁ TU NÚMERO DE WHATSAPP
-    // Argentina: 549 + código de área + número
-    const numeroWhatsApp = "5493586028606";
-
-    let mensaje = "🛍️ Hola! Quiero realizar este pedido:%0A%0A";
-
-    let total = 0;
-
-    carrito.forEach((producto, index) => {
-
-        mensaje += `${index + 1}. ${producto.nombre} - $${producto.precio.toLocaleString()}%0A`;
-
-        total += producto.precio;
-
-    });
-
-    mensaje += `%0A💰 Total: $${total.toLocaleString()}`;
-
-    const enlace =
-        `https://wa.me/${numeroWhatsApp}?text=${mensaje}`;
-
-    window.open(enlace, "_blank");
+    alert(
+        "💳 Compra lista. Próximamente conectaremos WhatsApp."
+    );
 }
