@@ -1,9 +1,9 @@
 let carrito = [];
 
 
-// =========================
-// AGREGAR PRODUCTO
-// =========================
+// =====================================================
+// AGREGAR PRODUCTO AL CARRITO
+// =====================================================
 
 function agregarCarrito(nombre, precio) {
 
@@ -18,9 +18,9 @@ function agregarCarrito(nombre, precio) {
 }
 
 
-// =========================
+// =====================================================
 // ACTUALIZAR CARRITO
-// =========================
+// =====================================================
 
 function actualizarCarrito() {
 
@@ -65,9 +65,9 @@ function actualizarCarrito() {
 }
 
 
-// =========================
+// =====================================================
 // ELIMINAR PRODUCTO
-// =========================
+// =====================================================
 
 function eliminarProducto(index) {
 
@@ -77,9 +77,9 @@ function eliminarProducto(index) {
 }
 
 
-// =========================
+// =====================================================
 // MOSTRAR CARRITO
-// =========================
+// =====================================================
 
 function mostrarCarrito() {
 
@@ -89,9 +89,9 @@ function mostrarCarrito() {
 }
 
 
-// =========================
+// =====================================================
 // CERRAR CARRITO
-// =========================
+// =====================================================
 
 function cerrarCarrito() {
 
@@ -101,9 +101,9 @@ function cerrarCarrito() {
 }
 
 
-// =========================
+// =====================================================
 // VACIAR CARRITO
-// =========================
+// =====================================================
 
 function vaciarCarrito() {
 
@@ -113,9 +113,9 @@ function vaciarCarrito() {
 }
 
 
-// =========================
+// =====================================================
 // LOGIN
-// =========================
+// =====================================================
 
 function mostrarLogin() {
 
@@ -141,9 +141,9 @@ function iniciarSesion() {
 }
 
 
-// =========================
+// =====================================================
 // BUSCADOR
-// =========================
+// =====================================================
 
 function buscar() {
 
@@ -178,9 +178,9 @@ function buscar() {
 }
 
 
-// =========================
+// =====================================================
 // CATEGORÍAS
-// =========================
+// =====================================================
 
 function filtrar(categoria) {
 
@@ -206,9 +206,9 @@ function filtrar(categoria) {
 }
 
 
-// =========================
+// =====================================================
 // IR A PRODUCTOS
-// =========================
+// =====================================================
 
 function irProductos() {
 
@@ -219,14 +219,16 @@ function irProductos() {
 }
 
 
-// ==================================================
+// =====================================================
 // PACK DE 3 PERFUMES
-// ==================================================
+// =====================================================
 
 let perfumesSeleccionados = [];
 
 
+// =====================================================
 // MOSTRAR PACK
+// =====================================================
 
 function mostrarPack() {
 
@@ -237,27 +239,34 @@ function mostrarPack() {
 
     opciones.innerHTML = "";
 
-    document.getElementById("cantidadPack").textContent = "0";
+    document.getElementById(
+        "cantidadPack"
+    ).textContent = "0";
 
-    // Buscar todos los productos normales
+
     let productos =
         document.querySelectorAll(
             '.producto[data-categoria="tubitos-arabes"]'
         );
 
-    productos.forEach((producto, index) => {
+
+    productos.forEach(producto => {
 
         let nombre =
             producto.querySelector("h3").textContent;
 
+
         let boton =
             document.createElement("button");
+
 
         boton.textContent =
             "⬜ " + nombre;
 
+
         boton.className =
             "opcion-pack";
+
 
         boton.onclick = function() {
 
@@ -268,9 +277,11 @@ function mostrarPack() {
 
         };
 
+
         opciones.appendChild(boton);
 
     });
+
 
     document.getElementById(
         "ventanaPack"
@@ -278,13 +289,18 @@ function mostrarPack() {
 }
 
 
-// SELECCIONAR PERFUME
+// =====================================================
+// SELECCIONAR PERFUME PARA EL PACK
+// =====================================================
 
 function seleccionarPerfume(nombre, boton) {
 
-    // Si ya estaba seleccionado, quitarlo
     let posicion =
         perfumesSeleccionados.indexOf(nombre);
+
+
+    // Si ya estaba seleccionado
+    // lo quitamos
 
     if (posicion !== -1) {
 
@@ -307,6 +323,7 @@ function seleccionarPerfume(nombre, boton) {
 
 
     // No permitir más de 3
+
     if (perfumesSeleccionados.length >= 3) {
 
         alert(
@@ -317,20 +334,27 @@ function seleccionarPerfume(nombre, boton) {
     }
 
 
+    // Agregar perfume
+
     perfumesSeleccionados.push(nombre);
+
 
     boton.textContent =
         "✅ " + nombre;
+
 
     boton.classList.add(
         "seleccionado"
     );
 
+
     actualizarCantidadPack();
 }
 
 
-// ACTUALIZAR CONTADOR
+// =====================================================
+// ACTUALIZAR CANTIDAD DEL PACK
+// =====================================================
 
 function actualizarCantidadPack() {
 
@@ -341,7 +365,9 @@ function actualizarCantidadPack() {
 }
 
 
+// =====================================================
 // CERRAR PACK
+// =====================================================
 
 function cerrarPack() {
 
@@ -351,7 +377,9 @@ function cerrarPack() {
 }
 
 
+// =====================================================
 // AGREGAR PACK AL CARRITO
+// =====================================================
 
 function agregarPack() {
 
@@ -386,15 +414,16 @@ function agregarPack() {
 
     cerrarPack();
 
+
     alert(
         "✅ Pack agregado al carrito por $18.000"
     );
 }
 
 
-// =========================
-// FINALIZAR COMPRA
-// =========================
+// =====================================================
+// FINALIZAR COMPRA POR WHATSAPP
+// =====================================================
 
 function finalizarCompra() {
 
@@ -407,7 +436,60 @@ function finalizarCompra() {
         return;
     }
 
-    alert(
-        "💳 Compra lista. Próximamente conectaremos WhatsApp."
+
+    // TU NÚMERO DE WHATSAPP
+
+    let numeroWhatsApp =
+        "5493586028606";
+
+
+    // CREAR MENSAJE
+
+    let mensaje =
+        "🛍️ *NUEVO PEDIDO - MI TIENDA*%0A%0A";
+
+
+    let total = 0;
+
+
+    carrito.forEach((producto, index) => {
+
+        mensaje +=
+            `${index + 1}. ${producto.nombre}%0A`;
+
+        mensaje +=
+            `💰 $${producto.precio.toLocaleString()}%0A%0A`;
+
+        total += producto.precio;
+
+    });
+
+
+    mensaje +=
+        "━━━━━━━━━━━━━━%0A";
+
+
+    mensaje +=
+        `💵 *TOTAL: $${total.toLocaleString()}*%0A%0A`;
+
+
+    mensaje +=
+        "Hola! Quiero realizar este pedido.";
+
+
+    // CREAR LINK DE WHATSAPP
+
+    let url =
+        "https://wa.me/" +
+        numeroWhatsApp +
+        "?text=" +
+        mensaje;
+
+
+    // ABRIR WHATSAPP
+
+    window.open(
+        url,
+        "_blank"
     );
 }
