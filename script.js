@@ -1,3 +1,7 @@
+// =====================================================
+// CARRITO
+// =====================================================
+
 let carrito = [];
 
 
@@ -24,44 +28,45 @@ function agregarCarrito(nombre, precio) {
 
 function actualizarCarrito() {
 
-    document.getElementById("contador").textContent =
-        carrito.length;
+    const contador = document.getElementById("contador");
+    const lista = document.getElementById("listaCarrito");
+    const totalElemento = document.getElementById("total");
 
-    let lista =
-        document.getElementById("listaCarrito");
+    if (!contador || !lista || !totalElemento) {
+        return;
+    }
+
+    contador.textContent = carrito.length;
 
     lista.innerHTML = "";
 
     let total = 0;
 
-    carrito.forEach((producto, index) => {
+    carrito.forEach(function(producto, index) {
 
         total += producto.precio;
 
-        let elemento =
-            document.createElement("div");
+        const elemento = document.createElement("div");
 
         elemento.innerHTML = `
-
             <span>
-                ${producto.nombre}
+                <strong>${producto.nombre}</strong>
                 <br>
-                $${producto.precio.toLocaleString()}
+                $${producto.precio.toLocaleString("es-AR")}
             </span>
 
             <button
+                type="button"
                 onclick="eliminarProducto(${index})">
                 ❌
             </button>
-
         `;
 
         lista.appendChild(elemento);
-
     });
 
-    document.getElementById("total").textContent =
-        total.toLocaleString();
+    totalElemento.textContent =
+        total.toLocaleString("es-AR");
 }
 
 
@@ -83,9 +88,12 @@ function eliminarProducto(index) {
 
 function mostrarCarrito() {
 
-    document.getElementById(
-        "ventanaCarrito"
-    ).style.display = "flex";
+    const ventana =
+        document.getElementById("ventanaCarrito");
+
+    if (ventana) {
+        ventana.style.display = "flex";
+    }
 }
 
 
@@ -95,9 +103,12 @@ function mostrarCarrito() {
 
 function cerrarCarrito() {
 
-    document.getElementById(
-        "ventanaCarrito"
-    ).style.display = "none";
+    const ventana =
+        document.getElementById("ventanaCarrito");
+
+    if (ventana) {
+        ventana.style.display = "none";
+    }
 }
 
 
@@ -119,24 +130,30 @@ function vaciarCarrito() {
 
 function mostrarLogin() {
 
-    document.getElementById(
-        "ventanaLogin"
-    ).style.display = "flex";
+    const ventana =
+        document.getElementById("ventanaLogin");
+
+    if (ventana) {
+        ventana.style.display = "flex";
+    }
 }
 
 
 function cerrarLogin() {
 
-    document.getElementById(
-        "ventanaLogin"
-    ).style.display = "none";
+    const ventana =
+        document.getElementById("ventanaLogin");
+
+    if (ventana) {
+        ventana.style.display = "none";
+    }
 }
 
 
 function iniciarSesion() {
 
     alert(
-        "El sistema de usuarios lo agregaremos en el siguiente paso."
+        "👤 El sistema de usuarios estará disponible próximamente."
     );
 }
 
@@ -147,22 +164,30 @@ function iniciarSesion() {
 
 function buscar() {
 
-    let texto =
-        document
-        .getElementById("busqueda")
-        .value
-        .toLowerCase();
+    const buscador =
+        document.getElementById("busqueda");
 
-    let productos =
+    if (!buscador) {
+        return;
+    }
+
+    const texto =
+        buscador.value.toLowerCase().trim();
+
+    const productos =
         document.querySelectorAll(".producto");
 
-    productos.forEach(producto => {
+    productos.forEach(function(producto) {
 
-        let nombre =
-            producto
-            .querySelector("h3")
-            .textContent
-            .toLowerCase();
+        const titulo =
+            producto.querySelector("h3");
+
+        if (!titulo) {
+            return;
+        }
+
+        const nombre =
+            titulo.textContent.toLowerCase();
 
         if (nombre.includes(texto)) {
 
@@ -171,9 +196,7 @@ function buscar() {
         } else {
 
             producto.style.display = "none";
-
         }
-
     });
 }
 
@@ -184,14 +207,17 @@ function buscar() {
 
 function filtrar(categoria) {
 
-    let productos =
+    const productos =
         document.querySelectorAll(".producto");
 
-    productos.forEach(producto => {
+    productos.forEach(function(producto) {
+
+        const categoriaProducto =
+            producto.dataset.categoria;
 
         if (
             categoria === "todos" ||
-            producto.dataset.categoria === categoria
+            categoriaProducto === categoria
         ) {
 
             producto.style.display = "block";
@@ -199,9 +225,7 @@ function filtrar(categoria) {
         } else {
 
             producto.style.display = "none";
-
         }
-
     });
 }
 
@@ -212,10 +236,15 @@ function filtrar(categoria) {
 
 function irProductos() {
 
-    document.querySelector("main")
-        .scrollIntoView({
+    const productos =
+        document.querySelector("main");
+
+    if (productos) {
+
+        productos.scrollIntoView({
             behavior: "smooth"
         });
+    }
 }
 
 
@@ -234,35 +263,54 @@ function mostrarPack() {
 
     perfumesSeleccionados = [];
 
-    let opciones =
+    const opciones =
         document.getElementById("opcionesPack");
+
+    const cantidad =
+        document.getElementById("cantidadPack");
+
+    const ventana =
+        document.getElementById("ventanaPack");
+
+
+    if (!opciones || !cantidad || !ventana) {
+        alert("⚠️ No se encontró la ventana del pack.");
+        return;
+    }
+
 
     opciones.innerHTML = "";
 
-    document.getElementById(
-        "cantidadPack"
-    ).textContent = "0";
+    cantidad.textContent = "0";
 
 
-    let productos =
+    const productos =
         document.querySelectorAll(
             '.producto[data-categoria="tubitos-arabes"]'
         );
 
 
-    productos.forEach(producto => {
+    productos.forEach(function(producto) {
 
-        let nombre =
-            producto.querySelector("h3").textContent;
+        const titulo =
+            producto.querySelector("h3");
+
+        if (!titulo) {
+            return;
+        }
+
+        const nombre =
+            titulo.textContent.trim();
 
 
-        let boton =
+        const boton =
             document.createElement("button");
 
 
+        boton.type = "button";
+
         boton.textContent =
             "⬜ " + nombre;
-
 
         boton.className =
             "opcion-pack";
@@ -274,18 +322,14 @@ function mostrarPack() {
                 nombre,
                 boton
             );
-
         };
 
 
         opciones.appendChild(boton);
-
     });
 
 
-    document.getElementById(
-        "ventanaPack"
-    ).style.display = "flex";
+    ventana.style.display = "flex";
 }
 
 
@@ -295,12 +339,12 @@ function mostrarPack() {
 
 function seleccionarPerfume(nombre, boton) {
 
-    let posicion =
+    const posicion =
         perfumesSeleccionados.indexOf(nombre);
 
 
-    // Si ya estaba seleccionado
-    // lo quitamos
+    // SI YA ESTÁ SELECCIONADO
+    // LO QUITAMOS
 
     if (posicion !== -1) {
 
@@ -322,7 +366,7 @@ function seleccionarPerfume(nombre, boton) {
     }
 
 
-    // No permitir más de 3
+    // MÁXIMO 3
 
     if (perfumesSeleccionados.length >= 3) {
 
@@ -334,19 +378,16 @@ function seleccionarPerfume(nombre, boton) {
     }
 
 
-    // Agregar perfume
+    // AGREGAR
 
     perfumesSeleccionados.push(nombre);
-
 
     boton.textContent =
         "✅ " + nombre;
 
-
     boton.classList.add(
         "seleccionado"
     );
-
 
     actualizarCantidadPack();
 }
@@ -358,10 +399,14 @@ function seleccionarPerfume(nombre, boton) {
 
 function actualizarCantidadPack() {
 
-    document.getElementById(
-        "cantidadPack"
-    ).textContent =
-        perfumesSeleccionados.length;
+    const cantidad =
+        document.getElementById("cantidadPack");
+
+    if (cantidad) {
+
+        cantidad.textContent =
+            perfumesSeleccionados.length;
+    }
 }
 
 
@@ -371,9 +416,13 @@ function actualizarCantidadPack() {
 
 function cerrarPack() {
 
-    document.getElementById(
-        "ventanaPack"
-    ).style.display = "none";
+    const ventana =
+        document.getElementById("ventanaPack");
+
+    if (ventana) {
+
+        ventana.style.display = "none";
+    }
 }
 
 
@@ -393,10 +442,8 @@ function agregarPack() {
     }
 
 
-    let nombres =
-        perfumesSeleccionados.join(
-            " + "
-        );
+    const nombres =
+        perfumesSeleccionados.join(" + ");
 
 
     carrito.push({
@@ -406,7 +453,6 @@ function agregarPack() {
             nombres,
 
         precio: 18000
-
     });
 
 
@@ -422,10 +468,12 @@ function agregarPack() {
 
 
 // =====================================================
-// FINALIZAR COMPRA POR WHATSAPP
+// FINALIZAR COMPRA - WHATSAPP
 // =====================================================
 
 function finalizarCompra() {
+
+    // COMPROBAR CARRITO
 
     if (carrito.length === 0) {
 
@@ -437,59 +485,85 @@ function finalizarCompra() {
     }
 
 
+    // =================================================
     // TU NÚMERO DE WHATSAPP
+    // =================================================
 
-    let numeroWhatsApp =
+    const numeroWhatsApp =
         "5493586028606";
 
 
+    // =================================================
     // CREAR MENSAJE
+    // =================================================
 
     let mensaje =
-        "🛍️ *NUEVO PEDIDO - MI TIENDA*%0A%0A";
+        "🛍️ NUEVO PEDIDO - MI TIENDA\n\n";
 
 
     let total = 0;
 
 
-    carrito.forEach((producto, index) => {
+    carrito.forEach(function(producto, index) {
 
         mensaje +=
-            `${index + 1}. ${producto.nombre}%0A`;
+            `${index + 1}. ${producto.nombre}\n`;
 
         mensaje +=
-            `💰 $${producto.precio.toLocaleString()}%0A%0A`;
+            `💰 $${producto.precio.toLocaleString("es-AR")}\n\n`;
 
         total += producto.precio;
-
     });
 
 
     mensaje +=
-        "━━━━━━━━━━━━━━%0A";
+        "━━━━━━━━━━━━━━━━\n";
 
 
     mensaje +=
-        `💵 *TOTAL: $${total.toLocaleString()}*%0A%0A`;
+        `💵 TOTAL: $${total.toLocaleString("es-AR")}\n\n`;
 
 
     mensaje +=
         "Hola! Quiero realizar este pedido.";
 
 
-    // CREAR LINK DE WHATSAPP
+    // =================================================
+    // CODIFICAR MENSAJE
+    // =================================================
 
-    let url =
+    const mensajeCodificado =
+        encodeURIComponent(mensaje);
+
+
+    // =================================================
+    // LINK DE WHATSAPP
+    // =================================================
+
+    const url =
         "https://wa.me/" +
         numeroWhatsApp +
         "?text=" +
-        mensaje;
+        mensajeCodificado;
 
 
+    // =================================================
     // ABRIR WHATSAPP
+    // =================================================
 
-    window.open(
-        url,
-        "_blank"
-    );
+    window.location.href = url;
 }
+
+
+// =====================================================
+// INICIAR CARRITO
+// =====================================================
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        actualizarCarrito();
+
+    }
+);
