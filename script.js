@@ -1,12 +1,7 @@
-// =====================================================
-// CARRITO
-// =====================================================
-
 let carrito = [];
 
-
 // =====================================================
-// AGREGAR PRODUCTO AL CARRITO
+// AGREGAR PRODUCTO
 // =====================================================
 
 function agregarCarrito(nombre, precio) {
@@ -28,44 +23,42 @@ function agregarCarrito(nombre, precio) {
 
 function actualizarCarrito() {
 
-    const contador = document.getElementById("contador");
-    const lista = document.getElementById("listaCarrito");
-    const totalElemento = document.getElementById("total");
+    document.getElementById("contador").textContent =
+        carrito.length;
 
-    if (!contador || !lista || !totalElemento) {
-        return;
-    }
-
-    contador.textContent = carrito.length;
+    let lista =
+        document.getElementById("listaCarrito");
 
     lista.innerHTML = "";
 
     let total = 0;
 
-    carrito.forEach(function(producto, index) {
+    carrito.forEach((producto, index) => {
 
         total += producto.precio;
 
-        const elemento = document.createElement("div");
+        let elemento =
+            document.createElement("div");
 
         elemento.innerHTML = `
+
             <span>
-                <strong>${producto.nombre}</strong>
+                ${producto.nombre}
                 <br>
                 $${producto.precio.toLocaleString("es-AR")}
             </span>
 
-            <button
-                type="button"
-                onclick="eliminarProducto(${index})">
+            <button onclick="eliminarProducto(${index})">
                 ❌
             </button>
+
         `;
 
         lista.appendChild(elemento);
+
     });
 
-    totalElemento.textContent =
+    document.getElementById("total").textContent =
         total.toLocaleString("es-AR");
 }
 
@@ -88,12 +81,8 @@ function eliminarProducto(index) {
 
 function mostrarCarrito() {
 
-    const ventana =
-        document.getElementById("ventanaCarrito");
-
-    if (ventana) {
-        ventana.style.display = "flex";
-    }
+    document.getElementById("ventanaCarrito").style.display =
+        "flex";
 }
 
 
@@ -103,12 +92,8 @@ function mostrarCarrito() {
 
 function cerrarCarrito() {
 
-    const ventana =
-        document.getElementById("ventanaCarrito");
-
-    if (ventana) {
-        ventana.style.display = "none";
-    }
+    document.getElementById("ventanaCarrito").style.display =
+        "none";
 }
 
 
@@ -130,30 +115,22 @@ function vaciarCarrito() {
 
 function mostrarLogin() {
 
-    const ventana =
-        document.getElementById("ventanaLogin");
-
-    if (ventana) {
-        ventana.style.display = "flex";
-    }
+    document.getElementById("ventanaLogin").style.display =
+        "flex";
 }
 
 
 function cerrarLogin() {
 
-    const ventana =
-        document.getElementById("ventanaLogin");
-
-    if (ventana) {
-        ventana.style.display = "none";
-    }
+    document.getElementById("ventanaLogin").style.display =
+        "none";
 }
 
 
 function iniciarSesion() {
 
     alert(
-        "👤 El sistema de usuarios estará disponible próximamente."
+        "El sistema de usuarios lo agregaremos en el siguiente paso."
     );
 }
 
@@ -164,30 +141,22 @@ function iniciarSesion() {
 
 function buscar() {
 
-    const buscador =
-        document.getElementById("busqueda");
+    let texto =
+        document
+        .getElementById("busqueda")
+        .value
+        .toLowerCase();
 
-    if (!buscador) {
-        return;
-    }
-
-    const texto =
-        buscador.value.toLowerCase().trim();
-
-    const productos =
+    let productos =
         document.querySelectorAll(".producto");
 
-    productos.forEach(function(producto) {
+    productos.forEach(producto => {
 
-        const titulo =
-            producto.querySelector("h3");
-
-        if (!titulo) {
-            return;
-        }
-
-        const nombre =
-            titulo.textContent.toLowerCase();
+        let nombre =
+            producto
+            .querySelector("h3")
+            .textContent
+            .toLowerCase();
 
         if (nombre.includes(texto)) {
 
@@ -196,7 +165,9 @@ function buscar() {
         } else {
 
             producto.style.display = "none";
+
         }
+
     });
 }
 
@@ -207,17 +178,14 @@ function buscar() {
 
 function filtrar(categoria) {
 
-    const productos =
+    let productos =
         document.querySelectorAll(".producto");
 
-    productos.forEach(function(producto) {
-
-        const categoriaProducto =
-            producto.dataset.categoria;
+    productos.forEach(producto => {
 
         if (
             categoria === "todos" ||
-            categoriaProducto === categoria
+            producto.dataset.categoria === categoria
         ) {
 
             producto.style.display = "block";
@@ -225,7 +193,9 @@ function filtrar(categoria) {
         } else {
 
             producto.style.display = "none";
+
         }
+
     });
 }
 
@@ -236,15 +206,9 @@ function filtrar(categoria) {
 
 function irProductos() {
 
-    const productos =
-        document.querySelector("main");
-
-    if (productos) {
-
-        productos.scrollIntoView({
-            behavior: "smooth"
-        });
-    }
+    document.querySelector("main").scrollIntoView({
+        behavior: "smooth"
+    });
 }
 
 
@@ -263,51 +227,25 @@ function mostrarPack() {
 
     perfumesSeleccionados = [];
 
-    const opciones =
+    let opciones =
         document.getElementById("opcionesPack");
-
-    const cantidad =
-        document.getElementById("cantidadPack");
-
-    const ventana =
-        document.getElementById("ventanaPack");
-
-
-    if (!opciones || !cantidad || !ventana) {
-        alert("⚠️ No se encontró la ventana del pack.");
-        return;
-    }
-
 
     opciones.innerHTML = "";
 
-    cantidad.textContent = "0";
+    document.getElementById("cantidadPack").textContent = "0";
 
-
-    const productos =
+    let productos =
         document.querySelectorAll(
             '.producto[data-categoria="tubitos-arabes"]'
         );
 
+    productos.forEach(producto => {
 
-    productos.forEach(function(producto) {
+        let nombre =
+            producto.querySelector("h3").textContent;
 
-        const titulo =
-            producto.querySelector("h3");
-
-        if (!titulo) {
-            return;
-        }
-
-        const nombre =
-            titulo.textContent.trim();
-
-
-        const boton =
+        let boton =
             document.createElement("button");
-
-
-        boton.type = "button";
 
         boton.textContent =
             "⬜ " + nombre;
@@ -315,36 +253,32 @@ function mostrarPack() {
         boton.className =
             "opcion-pack";
 
-
         boton.onclick = function() {
 
             seleccionarPerfume(
                 nombre,
                 boton
             );
+
         };
 
-
         opciones.appendChild(boton);
+
     });
 
-
-    ventana.style.display = "flex";
+    document.getElementById("ventanaPack").style.display =
+        "flex";
 }
 
 
 // =====================================================
-// SELECCIONAR PERFUME PARA EL PACK
+// SELECCIONAR PERFUME
 // =====================================================
 
 function seleccionarPerfume(nombre, boton) {
 
-    const posicion =
+    let posicion =
         perfumesSeleccionados.indexOf(nombre);
-
-
-    // SI YA ESTÁ SELECCIONADO
-    // LO QUITAMOS
 
     if (posicion !== -1) {
 
@@ -365,9 +299,6 @@ function seleccionarPerfume(nombre, boton) {
         return;
     }
 
-
-    // MÁXIMO 3
-
     if (perfumesSeleccionados.length >= 3) {
 
         alert(
@@ -376,9 +307,6 @@ function seleccionarPerfume(nombre, boton) {
 
         return;
     }
-
-
-    // AGREGAR
 
     perfumesSeleccionados.push(nombre);
 
@@ -394,19 +322,13 @@ function seleccionarPerfume(nombre, boton) {
 
 
 // =====================================================
-// ACTUALIZAR CANTIDAD DEL PACK
+// ACTUALIZAR CANTIDAD PACK
 // =====================================================
 
 function actualizarCantidadPack() {
 
-    const cantidad =
-        document.getElementById("cantidadPack");
-
-    if (cantidad) {
-
-        cantidad.textContent =
-            perfumesSeleccionados.length;
-    }
+    document.getElementById("cantidadPack").textContent =
+        perfumesSeleccionados.length;
 }
 
 
@@ -416,13 +338,8 @@ function actualizarCantidadPack() {
 
 function cerrarPack() {
 
-    const ventana =
-        document.getElementById("ventanaPack");
-
-    if (ventana) {
-
-        ventana.style.display = "none";
-    }
+    document.getElementById("ventanaPack").style.display =
+        "none";
 }
 
 
@@ -441,25 +358,21 @@ function agregarPack() {
         return;
     }
 
-
-    const nombres =
+    let nombres =
         perfumesSeleccionados.join(" + ");
-
 
     carrito.push({
 
         nombre:
-            "🎁 Pack 3 Perfumes: " +
-            nombres,
+            "🎁 Pack 3 Perfumes: " + nombres,
 
         precio: 18000
-    });
 
+    });
 
     actualizarCarrito();
 
     cerrarPack();
-
 
     alert(
         "✅ Pack agregado al carrito por $18.000"
@@ -468,12 +381,10 @@ function agregarPack() {
 
 
 // =====================================================
-// FINALIZAR COMPRA - WHATSAPP
+// FINALIZAR COMPRA POR WHATSAPP
 // =====================================================
 
 function finalizarCompra() {
-
-    // COMPROBAR CARRITO
 
     if (carrito.length === 0) {
 
@@ -484,27 +395,15 @@ function finalizarCompra() {
         return;
     }
 
-
-    // =================================================
-    // TU NÚMERO DE WHATSAPP
-    // =================================================
-
-    const numeroWhatsApp =
-        "5493586028606";
-
-
-    // =================================================
-    // CREAR MENSAJE
-    // =================================================
-
-    let mensaje =
-        "🛍️ NUEVO PEDIDO - MI TIENDA\n\n";
-
+    // TU WHATSAPP
+    let numeroWhatsApp = "5493586028606";
 
     let total = 0;
 
+    let mensaje =
+        "🛍️ *NUEVO PEDIDO - MI TIENDA*\n\n";
 
-    carrito.forEach(function(producto, index) {
+    carrito.forEach((producto, index) => {
 
         mensaje +=
             `${index + 1}. ${producto.nombre}\n`;
@@ -515,55 +414,22 @@ function finalizarCompra() {
         total += producto.precio;
     });
 
+    mensaje +=
+        "━━━━━━━━━━━━━━\n";
 
     mensaje +=
-        "━━━━━━━━━━━━━━━━\n";
-
-
-    mensaje +=
-        `💵 TOTAL: $${total.toLocaleString("es-AR")}\n\n`;
-
+        `💵 *TOTAL: $${total.toLocaleString("es-AR")}*\n\n`;
 
     mensaje +=
         "Hola! Quiero realizar este pedido.";
 
-
-    // =================================================
-    // CODIFICAR MENSAJE
-    // =================================================
-
-    const mensajeCodificado =
-        encodeURIComponent(mensaje);
-
-
-    // =================================================
-    // LINK DE WHATSAPP
-    // =================================================
-
-    const url =
+    // CONVERTIR EL MENSAJE PARA URL
+    let url =
         "https://wa.me/" +
         numeroWhatsApp +
         "?text=" +
-        mensajeCodificado;
+        encodeURIComponent(mensaje);
 
-
-    // =================================================
     // ABRIR WHATSAPP
-    // =================================================
-
     window.location.href = url;
 }
-
-
-// =====================================================
-// INICIAR CARRITO
-// =====================================================
-
-document.addEventListener(
-    "DOMContentLoaded",
-    function() {
-
-        actualizarCarrito();
-
-    }
-);
