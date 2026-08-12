@@ -5,17 +5,11 @@
 
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Mi Tienda</title>
 
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
@@ -57,13 +51,8 @@
 
 
         <button onclick="mostrarCarrito()">
-
             🛒 Carrito
-
-            <span id="contador">
-                0
-            </span>
-
+            <span id="contador">0</span>
         </button>
 
     </div>
@@ -78,30 +67,31 @@
 
 <nav class="categorias">
 
-
     <button onclick="filtrar('todos')">
         Todos
     </button>
 
-
-    
 
     <button onclick="filtrar('tubitos-arabes')">
         🧴 Tubitos Árabes
     </button>
 
 
-    <button onclick="mostrarPack()">
-        🎁 Pack 3 Perfumes
+    <button onclick="filtrar('decants')">
+        🧪 Decants
     </button>
 
+
+    <button onclick="filtrar('ofertas')">
+        🔥 Ofertas
+    </button>
 
 </nav>
 
 
 
 <!-- =====================================================
-     HERO
+     PRESENTACIÓN
 ===================================================== -->
 
 <section class="hero">
@@ -112,11 +102,9 @@
             Perfumes al mejor precio
         </h1>
 
-
         <p>
             Encontrá tus perfumes favoritos.
         </p>
-
 
         <button onclick="irProductos()">
             Comprar ahora
@@ -135,518 +123,565 @@
 <main>
 
 
-    <h2>
-        🧴 Tubitos Árabes
-    </h2>
+<!-- =====================================================
+     TUBITOS ÁRABES
+===================================================== -->
+
+<h2>
+    🧴 Tubitos Árabes
+</h2>
 
 
-    <div
-        id="productos"
-        class="productos"
+<div
+    id="productos"
+    class="productos"
+>
+
+
+    <!-- PRODUCTO 1 -->
+
+    <article
+        class="producto"
+        data-categoria="tubitos-arabes"
     >
 
-
-
-        <!-- =================================================
-             PRODUCTO 1
-        ================================================== -->
-
-        <article
-            class="producto"
-            data-categoria="tubitos-arabes"
+        <img
+            src="foto1.jpg"
+            alt="Khamrah EDP - Tubito Árabe"
         >
 
-            <img
-                src="9mp class.jpeg"
-                alt="9 PM Classic"
-            >
+        <h3>
+            Khamrah EDP - Tubito Árabe
+        </h3>
 
+        <p class="descripcion">
+            Perfume en formato tubito árabe de 35ml.
+        </p>
 
-            <h3>
-                9 PM Classic - Tubito Árabe
-            </h3>
+        <p class="precio">
+            $6.500
+        </p>
 
+        <button
+            onclick="agregarCarrito(
+                'Khamrah EDP - Tubito Árabe',
+                6500
+            )"
+        >
+            🛒 Agregar al carrito
+        </button>
 
-            <p class="descripcion">
-                Perfume en formato tubito árabe de 35ml.
-            </p>
-
-
-            <p class="precio">
-                $6.500
-            </p>
-
-
-            <button
-                onclick="agregarCarrito(
-                    '9 PM Classic - Tubito Árabe',
-                    6500
-                )"
-            >
-                🛒 Agregar al carrito
-            </button>
-
-        </article>
+    </article>
 
 
 
-        <!-- =================================================
-             PRODUCTO 2
-        ================================================== -->
+    <!-- PRODUCTO 2 -->
 
-        <article
-            class="producto"
-            data-categoria="tubitos-arabes"
+    <article
+        class="producto"
+        data-categoria="tubitos-arabes"
+    >
+
+        <img
+            src="foto2.jpg"
+            alt="Odyssey Spectra - Tubito Árabe"
         >
 
-            <img
-                src="spectra.webp"
-                alt="Odyssey Spectra"
-            >
+        <h3>
+            Odyssey Spectra - Tubito Árabe
+        </h3>
 
+        <p class="descripcion">
+            Perfume en formato tubito árabe de 35ml.
+        </p>
 
-            <h3>
-                Odyssey Spectra - Tubito Árabe
-            </h3>
+        <p class="precio">
+            $6.500
+        </p>
 
+        <button
+            onclick="agregarCarrito(
+                'Odyssey Spectra - Tubito Árabe',
+                6500
+            )"
+        >
+            🛒 Agregar al carrito
+        </button>
 
-            <p class="descripcion">
-                Perfume en formato tubito árabe de 35ml.
-            </p>
-
-
-            <p class="precio">
-                $6.500
-            </p>
-
-
-            <button
-                onclick="agregarCarrito(
-                    'Odyssey Spectra - Tubito Árabe',
-                    6500
-                )"
-            >
-                🛒 Agregar al carrito
-            </button>
-
-        </article>
+    </article>
 
 
 
-        <!-- =================================================
-             PRODUCTO 3
-        ================================================== -->
+    <!-- PRODUCTO 3 -->
 
-        <article
-            class="producto"
-            data-categoria="tubitos-arabes"
+    <article
+        class="producto"
+        data-categoria="tubitos-arabes"
+    >
+
+        <img
+            src="foto3.jpg"
+            alt="Hawas Fire - Tubito Árabe"
         >
 
-            <img
-                src="hawas.png"
-                alt="Hawas Fire"
-            >
+        <h3>
+            Hawas Fire - Tubito Árabe
+        </h3>
 
+        <p class="descripcion">
+            Perfume en formato tubito árabe de 35ml.
+        </p>
 
-            <h3>
-                Hawas Fire - Tubito Árabe
-            </h3>
+        <p class="precio">
+            $6.500
+        </p>
 
+        <button
+            onclick="agregarCarrito(
+                'Hawas Fire - Tubito Árabe',
+                6500
+            )"
+        >
+            🛒 Agregar al carrito
+        </button>
 
-            <p class="descripcion">
-                Perfume en formato tubito árabe de 35ml.
-            </p>
-
-
-            <p class="precio">
-                $6.500
-            </p>
-
-
-            <button
-                onclick="agregarCarrito(
-                    'Hawas Fire - Tubito Árabe',
-                    6500
-                )"
-            >
-                🛒 Agregar al carrito
-            </button>
-
-        </article>
+    </article>
 
 
 
-        <!-- =================================================
-             PRODUCTO 4
-        ================================================== -->
+    <!-- PRODUCTO 4 -->
 
-        <article
-            class="producto"
-            data-categoria="tubitos-arabes"
+    <article
+        class="producto"
+        data-categoria="tubitos-arabes"
+    >
+
+        <img
+            src="foto4.jpg"
+            alt="Hayaati Black - Tubito Árabe"
         >
 
-            <img
-                src="hayati.png"
-                alt="Hayaati Black"
-            >
+        <h3>
+            Hayaati Black - Tubito Árabe
+        </h3>
 
+        <p class="descripcion">
+            Perfume en formato tubito árabe de 35ml.
+        </p>
 
-            <h3>
-                Hayaati Black - Tubito Árabe
-            </h3>
+        <p class="precio">
+            $6.500
+        </p>
 
+        <button
+            onclick="agregarCarrito(
+                'Hayaati Black - Tubito Árabe',
+                6500
+            )"
+        >
+            🛒 Agregar al carrito
+        </button>
 
-            <p class="descripcion">
-                Perfume en formato tubito árabe de 35ml.
-            </p>
-
-
-            <p class="precio">
-                $6.500
-            </p>
-
-
-            <button
-                onclick="agregarCarrito(
-                    'Hayaati Black - Tubito Árabe',
-                    6500
-                )"
-            >
-                🛒 Agregar al carrito
-            </button>
-
-        </article>
+    </article>
 
 
 
-        <!-- =================================================
-             PRODUCTO 5
-        ================================================== -->
+    <!-- PRODUCTO 5 -->
 
-        <article
-            class="producto"
-            data-categoria="tubitos-arabes"
+    <article
+        class="producto"
+        data-categoria="tubitos-arabes"
+    >
+
+        <img
+            src="foto5.jpg"
+            alt="Khamrah EDP - Tubito Árabe"
         >
 
-            <img
-                src="khambra classic.webp"
-                alt="Khamrah Classic"
-            >
+        <h3>
+            Khamrah EDP - Tubito Árabe
+        </h3>
 
+        <p class="descripcion">
+            Perfume en formato tubito árabe de 35ml.
+        </p>
 
-            <h3>
-                Khamrah Classic - Tubito Árabe
-            </h3>
+        <p class="precio">
+            $6.500
+        </p>
 
+        <button
+            onclick="agregarCarrito(
+                'Khamrah EDP - Tubito Árabe',
+                6500
+            )"
+        >
+            🛒 Agregar al carrito
+        </button>
 
-            <p class="descripcion">
-                Perfume en formato tubito árabe de 35ml.
-            </p>
-
-
-            <p class="precio">
-                $6.500
-            </p>
-
-
-            <button
-                onclick="agregarCarrito(
-                    'Khamrah Classic - Tubito Árabe',
-                    6500
-                )"
-            >
-                🛒 Agregar al carrito
-            </button>
-
-        </article>
+    </article>
 
 
 
-        <!-- =================================================
-             PRODUCTO 6
-        ================================================== -->
+    <!-- PRODUCTO 6 -->
 
-        <article
-            class="producto"
-            data-categoria="tubitos-arabes"
+    <article
+        class="producto"
+        data-categoria="tubitos-arabes"
+    >
+
+        <img
+            src="foto6.jpg"
+            alt="Odyssey Mandarin Sky Elixir"
         >
 
-            <img
-                src="khramra.jpeg"
-                alt="Khamrah"
-            >
+        <h3>
+            Odyssey Mandarin Sky Elixir - Tubito Árabe
+        </h3>
 
+        <p class="descripcion">
+            Perfume en formato tubito árabe de 35ml.
+        </p>
 
-            <h3>
-                Khamrah - Tubito Árabe
-            </h3>
+        <p class="precio">
+            $6.500
+        </p>
 
+        <button
+            onclick="agregarCarrito(
+                'Odyssey Mandarin Sky Elixir - Tubito Árabe',
+                6500
+            )"
+        >
+            🛒 Agregar al carrito
+        </button>
 
-            <p class="descripcion">
-                Perfume en formato tubito árabe de 35ml.
-            </p>
-
-
-            <p class="precio">
-                $6.500
-            </p>
-
-
-            <button
-                onclick="agregarCarrito(
-                    'Khamrah - Tubito Árabe',
-                    6500
-                )"
-            >
-                🛒 Agregar al carrito
-            </button>
-
-        </article>
+    </article>
 
 
 
-        <!-- =================================================
-             PRODUCTO 7
-        ================================================== -->
+    <!-- PRODUCTO 7 -->
 
-        <article
-            class="producto"
-            data-categoria="tubitos-arabes"
+    <article
+        class="producto"
+        data-categoria="tubitos-arabes"
+    >
+
+        <img
+            src="foto7.jpg"
+            alt="Odyssey Mandarin Sky"
         >
 
-            <img
-                src="mandarin elixir.jpeg"
-                alt="Odyssey Mandarin Sky Elixir"
-            >
+        <h3>
+            Odyssey Mandarin Sky - Tubito Árabe
+        </h3>
 
+        <p class="descripcion">
+            Perfume en formato tubito árabe de 35ml.
+        </p>
 
-            <h3>
-                Odyssey Mandarin Sky Elixir - Tubito Árabe
-            </h3>
+        <p class="precio">
+            $6.500
+        </p>
 
+        <button
+            onclick="agregarCarrito(
+                'Odyssey Mandarin Sky - Tubito Árabe',
+                6500
+            )"
+        >
+            🛒 Agregar al carrito
+        </button>
 
-            <p class="descripcion">
-                Perfume en formato tubito árabe de 35ml.
-            </p>
-
-
-            <p class="precio">
-                $6.500
-            </p>
-
-
-            <button
-                onclick="agregarCarrito(
-                    'Odyssey Mandarin Sky Elixir - Tubito Árabe',
-                    6500
-                )"
-            >
-                🛒 Agregar al carrito
-            </button>
-
-        </article>
+    </article>
 
 
 
-        <!-- =================================================
-             PRODUCTO 8
-        ================================================== -->
+    <!-- PRODUCTO 8 -->
 
-        <article
-            class="producto"
-            data-categoria="tubitos-arabes"
+    <article
+        class="producto"
+        data-categoria="tubitos-arabes"
+    >
+
+        <img
+            src="foto8.jpg"
+            alt="9 PM Rebel"
         >
 
-            <img
-                src="9pm rebel.webp"
-                alt="9 PM Rebel"
-            >
+        <h3>
+            9 PM Rebel - Tubito Árabe
+        </h3>
 
+        <p class="descripcion">
+            Perfume en formato tubito árabe de 35ml.
+        </p>
 
-            <h3>
-                9 PM Rebel - Tubito Árabe
-            </h3>
+        <p class="precio">
+            $6.500
+        </p>
 
+        <button
+            onclick="agregarCarrito(
+                '9 PM Rebel - Tubito Árabe',
+                6500
+            )"
+        >
+            🛒 Agregar al carrito
+        </button>
 
-            <p class="descripcion">
-                Perfume en formato tubito árabe de 35ml.
-            </p>
-
-
-            <p class="precio">
-                $6.500
-            </p>
-
-
-            <button
-                onclick="agregarCarrito(
-                    '9 PM Rebel - Tubito Árabe',
-                    6500
-                )"
-            >
-                🛒 Agregar al carrito
-            </button>
-
-        </article>
+    </article>
 
 
 
-        <!-- =================================================
-             PRODUCTO 9
-        ================================================== -->
+    <!-- PRODUCTO 9 -->
 
-        <article
-            class="producto"
-            data-categoria="tubitos-arabes"
+    <article
+        class="producto"
+        data-categoria="tubitos-arabes"
+    >
+
+        <img
+            src="foto9.jpg"
+            alt="Asad Elixir"
         >
 
-            <img
-                src="asad elixir.jpg"
-                alt="Asad Elixir"
-            >
+        <h3>
+            Asad Elixir - Tubito Árabe
+        </h3>
 
+        <p class="descripcion">
+            Perfume en formato tubito árabe de 35ml.
+        </p>
 
-            <h3>
-                Asad Elixir - Tubito Árabe
-            </h3>
+        <p class="precio">
+            $6.500
+        </p>
 
+        <button
+            onclick="agregarCarrito(
+                'Asad Elixir - Tubito Árabe',
+                6500
+            )"
+        >
+            🛒 Agregar al carrito
+        </button>
 
-            <p class="descripcion">
-                Perfume en formato tubito árabe de 35ml.
-            </p>
-
-
-            <p class="precio">
-                $6.500
-            </p>
-
-
-            <button
-                onclick="agregarCarrito(
-                    'Asad Elixir - Tubito Árabe',
-                    6500
-                )"
-            >
-                🛒 Agregar al carrito
-            </button>
-
-        </article>
+    </article>
 
 
 
-        <!-- =================================================
-             PRODUCTO 10
-        ================================================== -->
+    <!-- PRODUCTO 10 -->
 
-        <article
-            class="producto"
-            data-categoria="tubitos-arabes"
+    <article
+        class="producto"
+        data-categoria="tubitos-arabes"
+    >
+
+        <img
+            src="foto10.jpg"
+            alt="9 AM Celeste"
         >
 
-            <img
-                src="9am celeste.webp"
-                alt="9 AM Celeste"
-            >
+        <h3>
+            9 AM Celeste - Tubito Árabe
+        </h3>
+
+        <p class="descripcion">
+            Perfume en formato tubito árabe de 35ml.
+        </p>
+
+        <p class="precio">
+            $6.500
+        </p>
+
+        <button
+            onclick="agregarCarrito(
+                '9 AM Celeste - Tubito Árabe',
+                6500
+            )"
+        >
+            🛒 Agregar al carrito
+        </button>
+
+    </article>
 
 
-            <h3>
-                9 AM Celeste - Tubito Árabe
-            </h3>
-
-
-            <p class="descripcion">
-                Perfume en formato tubito árabe de 35ml.
-            </p>
-
-
-            <p class="precio">
-                $6.500
-            </p>
-
-
-            <button
-                onclick="agregarCarrito(
-                    '9 AM Celeste - Tubito Árabe',
-                    6500
-                )"
-            >
-                🛒 Agregar al carrito
-            </button>
-
-        </article>
-
-
-
-    </div>
-
-</main>
+</div>
 
 
 
 <!-- =====================================================
-     VENTANA PACK 3 PERFUMES
+     DECANTS
 ===================================================== -->
 
-<div
-    id="ventanaPack"
-    class="modal"
->
+<h2 style="margin-top: 50px;">
+    🧪 Decants
+</h2>
 
 
-    <div class="modal-contenido">
+<div class="productos">
 
 
-        <button
-            class="cerrar"
-            onclick="cerrarPack()"
+    <!-- DECANT 1 -->
+
+    <article
+        class="producto"
+        data-categoria="decants"
+    >
+
+        <img
+            src="foto-decant1.jpg"
+            alt="JPG Paradice Garden 10ml"
         >
-            ✖
-        </button>
-
-
-        <h2>
-            🎁 3 Perfumes a Elección
-        </h2>
-
-
-        <p>
-            Elegí exactamente 3 perfumes de nuestro stock.
-        </p>
-
-
-        <p>
-            Seleccionados:
-
-            <strong>
-                <span id="cantidadPack">
-                    0
-                </span>/3
-            </strong>
-        </p>
-
-
-        <div id="opcionesPack"></div>
-
-
-        <hr>
-
 
         <h3>
-            Total del pack:
-            $18.000
+            JPG Paradice Garden 10ml
         </h3>
 
+        <p class="descripcion">
+            Decant de perfume de 10ml.
+        </p>
+
+        <p class="precio">
+            $20.000
+        </p>
 
         <button
-            onclick="agregarPack()"
+            onclick="agregarCarrito(
+                'JPG Paradice Garden 10ml',
+                20000
+            )"
         >
-            🛒 Agregar pack al carrito
+            🛒 Agregar al carrito
         </button>
 
+    </article>
 
-    </div>
+
+
+    <!-- DECANT 2 -->
+
+    <article
+        class="producto"
+        data-categoria="decants"
+    >
+
+        <img
+            src="foto-decant2.jpg"
+            alt="Valentino Born In Roma 10ml"
+        >
+
+        <h3>
+            Valentino Born In Roma 10ml
+        </h3>
+
+        <p class="descripcion">
+            Decant de perfume de 10ml.
+        </p>
+
+        <p class="precio">
+            $21.000
+        </p>
+
+        <button
+            onclick="agregarCarrito(
+                'Valentino Born In Roma 10ml',
+                21000
+            )"
+        >
+            🛒 Agregar al carrito
+        </button>
+
+    </article>
+
+
+
+    <!-- DECANT 3 -->
+
+    <article
+        class="producto"
+        data-categoria="decants"
+    >
+
+        <img
+            src="foto-decant3.jpg"
+            alt="Mandarin Sky"
+        >
+
+        <h3>
+            Mandarin Sky
+        </h3>
+
+        <p class="descripcion">
+            Decant de perfume.
+        </p>
+
+        <p class="precio">
+            $9.000
+        </p>
+
+        <button
+            onclick="agregarCarrito(
+                'Mandarin Sky',
+                9000
+            )"
+        >
+            🛒 Agregar al carrito
+        </button>
+
+    </article>
+
 
 </div>
+
+
+
+<!-- =====================================================
+     OFERTAS
+===================================================== -->
+
+<h2 style="margin-top: 50px;">
+    🔥 Ofertas
+</h2>
+
+
+<div class="productos">
+
+
+    <article
+        class="producto"
+        data-categoria="ofertas"
+    >
+
+        <img
+            src="oferta.jpg"
+            alt="3 perfumes a elección"
+        >
+
+        <h3>
+            🎁 3 Perfumes a elección
+        </h3>
+
+        <p class="descripcion">
+            Elegí 3 perfumes de los disponibles.
+        </p>
+
+        <p class="precio">
+            $18.000
+        </p>
+
+        <button
+            onclick="mostrarPack()"
+        >
+            🎁 Elegir 3 perfumes
+        </button>
+
+    </article>
+
+</div>
+
+</main>
 
 
 
@@ -659,9 +694,7 @@
     class="modal"
 >
 
-
     <div class="modal-contenido">
-
 
         <button
             class="cerrar"
@@ -683,13 +716,8 @@
 
 
         <h3>
-
             Total:
-
-            $<span id="total">
-                0
-            </span>
-
+            $<span id="total">0</span>
         </h3>
 
 
@@ -707,6 +735,52 @@
             Vaciar carrito
         </button>
 
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     VENTANA PACK 3 PERFUMES
+===================================================== -->
+
+<div
+    id="ventanaPack"
+    class="modal"
+>
+
+    <div class="modal-contenido">
+
+        <button
+            class="cerrar"
+            onclick="cerrarPack()"
+        >
+            ✖
+        </button>
+
+
+        <h2>
+            🎁 Elegí 3 perfumes
+        </h2>
+
+
+        <p>
+            Seleccionados:
+            <strong>
+                <span id="cantidadPack">0</span>/3
+            </strong>
+        </p>
+
+
+        <div id="opcionesPack"></div>
+
+
+        <button
+            onclick="agregarPack()"
+        >
+            ✅ Agregar pack al carrito
+        </button>
 
     </div>
 
@@ -723,9 +797,7 @@
     class="modal"
 >
 
-
     <div class="modal-contenido">
-
 
         <button
             class="cerrar"
@@ -760,15 +832,9 @@
 
 
         <p>
-
             ¿No tenés cuenta?
-
-            <b>
-                Registrate
-            </b>
-
+            <b>Registrate</b>
         </p>
-
 
     </div>
 
@@ -790,7 +856,12 @@
 
 
 
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
 <script src="script.js"></script>
+
 
 </body>
 
