@@ -3,19 +3,38 @@ let carrito = [];
 // =====================================================
 // AGREGAR PRODUCTO
 // =====================================================
-
 function agregarCarrito(nombre, precio) {
+
+    let cantidad = prompt(
+        "¿Cuántos querés comprar de " + nombre + "?"
+    );
+
+    if (cantidad === null) {
+        return;
+    }
+
+    cantidad = parseInt(cantidad);
+
+    if (isNaN(cantidad) || cantidad < 1) {
+        alert("⚠️ Ingresá una cantidad válida.");
+        return;
+    }
 
     carrito.push({
         nombre: nombre,
-        precio: precio
+        precio: precio,
+        cantidad: cantidad
     });
 
     actualizarCarrito();
 
-    alert("✅ Producto agregado al carrito");
+    alert(
+        "✅ Agregaste " +
+        cantidad +
+        " unidad(es) de " +
+        nombre
+    );
 }
-
 
 // =====================================================
 // ACTUALIZAR CARRITO
