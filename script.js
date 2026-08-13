@@ -42,11 +42,11 @@ function agregarCarrito(nombre, precio) {
 
 function actualizarCarrito() {
 
-    document.getElementById("contador").textContent =
-        carrito.length;
+    let cantidadTotal = 0;
 
-    let lista =
-        document.getElementById("listaCarrito");
+    document.getElementById("contador").textContent = 0;
+
+    let lista = document.getElementById("listaCarrito");
 
     lista.innerHTML = "";
 
@@ -54,7 +54,12 @@ function actualizarCarrito() {
 
     carrito.forEach((producto, index) => {
 
-        total += producto.precio;
+        let subtotal =
+            producto.precio * producto.cantidad;
+
+        total += subtotal;
+
+        cantidadTotal += producto.cantidad;
 
         let elemento =
             document.createElement("div");
@@ -62,12 +67,33 @@ function actualizarCarrito() {
         elemento.innerHTML = `
 
             <span>
-                ${producto.nombre}
+
+                <strong>
+                    ${producto.nombre}
+                </strong>
+
                 <br>
-                $${producto.precio.toLocaleString("es-AR")}
+
+                Cantidad:
+                ${producto.cantidad}
+
+                <br>
+
+                Precio:
+                $${producto.precio.toLocaleString()}
+
+                <br>
+
+                Subtotal:
+                <strong>
+                    $${subtotal.toLocaleString()}
+                </strong>
+
             </span>
 
-            <button onclick="eliminarProducto(${index})">
+            <button
+                onclick="eliminarProducto(${index})"
+            >
                 ❌
             </button>
 
@@ -77,10 +103,12 @@ function actualizarCarrito() {
 
     });
 
-    document.getElementById("total").textContent =
-        total.toLocaleString("es-AR");
-}
+    document.getElementById("contador").textContent =
+        cantidadTotal;
 
+    document.getElementById("total").textContent =
+        total.toLocaleString();
+}
 
 // =====================================================
 // ELIMINAR PRODUCTO
@@ -407,48 +435,53 @@ function finalizarCompra() {
 
     if (carrito.length === 0) {
 
-        alert(
-            "🛒 Tu carrito está vacío."
-        );
+        alert("🛒 Tu carrito está vacío.");
 
         return;
     }
 
-    // TU WHATSAPP
     let numeroWhatsApp = "5493586028606";
+
+    let mensaje =
+        "🛍️ *NUEVO PEDIDO - MI TIENDA*%0A%0A";
 
     let total = 0;
 
-    let mensaje =
-        "🛍️ *NUEVO PEDIDO - MI TIENDA*\n\n";
-
     carrito.forEach((producto, index) => {
 
-        mensaje +=
-            `${index + 1}. ${producto.nombre}\n`;
+        let subtotal =
+            producto.precio * producto.cantidad;
 
         mensaje +=
-            `💰 $${producto.precio.toLocaleString("es-AR")}\n\n`;
+            `${index + 1}. ${producto.nombre}%0A`;
 
-        total += producto.precio;
+        mensaje +=
+            `📦 Cantidad: ${producto.cantidad}%0A`;
+
+        mensaje +=
+            `💰 Precio unidad: $${producto.precio.toLocaleString()}%0A`;
+
+        mensaje +=
+            `💵 Subtotal: $${subtotal.toLocaleString()}%0A%0A`;
+
+        total += subtotal;
+
     });
 
     mensaje +=
-        "━━━━━━━━━━━━━━\n";
+        "━━━━━━━━━━━━━━%0A";
 
     mensaje +=
-        `💵 *TOTAL: $${total.toLocaleString("es-AR")}*\n\n`;
+        `💵 *TOTAL: $${total.toLocaleString()}*%0A%0A`;
 
     mensaje +=
         "Hola! Quiero realizar este pedido.";
 
-    // CONVERTIR EL MENSAJE PARA URL
     let url =
         "https://wa.me/" +
         numeroWhatsApp +
         "?text=" +
-        encodeURIComponent(mensaje);
+        mensaje;
 
-    // ABRIR WHATSAPP
-    window.location.href = url;
+    window.open(url, "_blank");
 }
