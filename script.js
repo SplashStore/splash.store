@@ -456,7 +456,7 @@ function agregarPack() {
         nombre:
             "🎁 Pack 3 Perfumes: " + nombres,
 
-        precio: 18000,
+        precio: 21000,
 
         cantidad: 1
 
