@@ -2,7 +2,7 @@ let carrito = [];
 let perfumesSeleccionados = [];
 
 // =====================================================
-// AGREGAR PRODUCTO AL CARRITO
+// AGREGAR PRODUCTO
 // =====================================================
 
 function agregarCarrito(nombre, precio) {
@@ -17,9 +17,9 @@ function agregarCarrito(nombre, precio) {
 
     cantidad = parseInt(cantidad);
 
-    if (isNaN(cantidad) || cantidad <= 0) {
+    if (isNaN(cantidad) || cantidad < 1) {
 
-        alert("⚠️ Tenés que ingresar una cantidad válida.");
+        alert("⚠️ Ingresá una cantidad válida.");
 
         return;
     }
@@ -49,6 +49,8 @@ function actualizarCarrito() {
 
     let lista =
         document.getElementById("listaCarrito");
+
+    if (!lista) return;
 
     lista.innerHTML = "";
 
@@ -85,7 +87,7 @@ function actualizarCarrito() {
 
                 <br>
 
-                💰 Precio:
+                💰 Precio por unidad:
                 $${producto.precio.toLocaleString()}
 
                 <br>
@@ -97,10 +99,8 @@ function actualizarCarrito() {
 
             </span>
 
-
             <button
-                onclick="eliminarProducto(${index})"
-            >
+                onclick="eliminarProducto(${index})">
                 ❌
             </button>
 
@@ -292,7 +292,6 @@ function mostrarPack() {
     let opciones =
         document.getElementById("opcionesPack");
 
-
     opciones.innerHTML = "";
 
 
@@ -408,7 +407,7 @@ function seleccionarPerfume(nombre, boton) {
 
 
 // =====================================================
-// ACTUALIZAR CANTIDAD DEL PACK
+// ACTUALIZAR PACK
 // =====================================================
 
 function actualizarCantidadPack() {
@@ -455,8 +454,7 @@ function agregarPack() {
     carrito.push({
 
         nombre:
-            "🎁 Pack 3 Perfumes: " +
-            nombres,
+            "🎁 Pack 3 Perfumes: " + nombres,
 
         precio: 18000,
 
@@ -477,7 +475,7 @@ function agregarPack() {
 
 
 // =====================================================
-// FINALIZAR COMPRA - WHATSAPP
+// FINALIZAR COMPRA POR WHATSAPP
 // =====================================================
 
 function finalizarCompra() {
@@ -513,14 +511,11 @@ function finalizarCompra() {
         mensaje +=
             `${index + 1}. ${producto.nombre}%0A`;
 
-
         mensaje +=
             `📦 Cantidad: ${producto.cantidad}%0A`;
 
-
         mensaje +=
             `💰 Precio unidad: $${producto.precio.toLocaleString()}%0A`;
-
 
         mensaje +=
             `💵 Subtotal: $${subtotal.toLocaleString()}%0A%0A`;
